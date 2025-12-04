@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字展销平台-积分商城</title>
+    <link rel="stylesheet" href="lab7-08.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head> 
+<body> 
+    <div class="container"> 
+        
+        <header> 
+            <div class="header-content">  
+                <div class="logo">
+                    <img src="数字展销平台logo.png" alt="数字展销平台logo" class="logo-img">数字展销平台</div>
+                
+                <div class="user-info">
+                    <div class="user-info-item">登录/注册</div>
+                    <div class="user-info-item test-rotate">
+                        <span class="test-icon">🔍</span>
+                        搜索
+                    </div>                
+                    <div class="user-info-item test-rotate" id="simple-cart">
+                        <span class="test-icon">🛒</span>
+                        购物车 (<span id="cart-num">0</span>)
+                    </div>
+                    <div class="user-info-item">
+                        消息
+                        <div class="dropdown-menu">
+                            <a href="#">系统通知</a>
+                            <a href="#">积分变动</a>
+                            <a href="#">活动提醒</a>
+                        </div>
+                    </div>
+                    <div class="user-info-item" id="settings-btn">
+                        设置
+                        <div class="dropdown-menu">
+                            <a href="#">个人资料</a>
+                            <a href="#">安全设置</a>
+                            <a href="#">通知设置</a>
+                            <a href="#">隐私设置</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <div class="left-nav">
+                <h2 class="nav-title"> <span class="icon" style="font-family: 'Material Icons'; margin-right: 8px;">account_balance_wallet</span>积分中心</h2>
+                <ul class="nav-menu">
+                    <li class="active"> <span class="icon" style="font-family: 'Material Icons'; margin-right: 8px;">shopping_cart</span>积分商城</li>
+                    <li><span class="icon" style="font-family: 'Material Icons'; margin-right: 8px;">task</span>积分任务</li> 
+                    <li> <span class="icon" style="font-family: 'Material Icons'; margin-right: 8px;">rule</span>积分规则</li>
+                    <li><span class="icon" style="font-family: 'Material Icons'; margin-right: 8px;">history</span>积分记录</li>
+                    <li> <span class="icon" style="font-family: 'Material Icons'; margin-right: 8px;">swap_horiz</span>积分兑换</li>
+                    <li> <span class="icon" style="font-family: 'Material Icons'; margin-right: 8px;">diamond</span>会员特权</li>
+                    <li><span class="icon" style="font-family: 'Material Icons'; margin-right: 8px;">casino</span>积分抽奖</li>
+                    <li><span class="icon" style="font-family: 'Material Icons'; margin-right: 8px;">leaderboard</span>积分排行榜</li>
+                </ul>
+            </div>
+            <div class="center-content">
+                <h2 class="section-title">积分兑换商品</h2>
+                
+                <!-- 3D环形商品展示 -->
+                <div class="carousel-3d">
+                    <div class="carousel-3d-container">
+                        <div class="carousel-3d-item">
+                            <img src="智能手机.jpg" alt="智能手机">
+                            <h4>智能手机</h4>
+                            <div class="price">1200积分</div>
+                        </div>
+                        <div class="carousel-3d-item">
+                            <img src="智能手环.jpg" alt="智能手环">
+                            <h4>智能手环</h4>
+                            <div class="price">800积分</div>
+                        </div>
+                        <div class="carousel-3d-item">
+                            <img src="充电宝.jpg" alt="充电宝">
+                            <h4>便携充电宝</h4>
+                            <div class="price">500积分</div>
+                        </div>
+                        <div class="carousel-3d-item">
+                            <img src="咖啡杯.jpg" alt="咖啡杯">
+                            <h4>咖啡杯套装</h4>
+                            <div class="price">300积分</div>
+                        </div>
+                        <div class="carousel-3d-item">
+                            <img src="办公文具.jpg" alt="办公文具">
+                            <h4>办公文具套装</h4>
+                            <div class="price">200积分</div>
+                        </div>
+                        <div class="carousel-3d-item">
+                            <img src="电子书代金券.jpg" alt="电子书券">
+                            <h4>电子书代金券</h4>
+                            <div class="price">100积分</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 筛选下拉菜单 -->
+                <div class="filter-menu">
+                    <div class="filter-dropdown">
+                        <div class="filter-btn">分类筛选 ▼</div>
+                        <div class="filter-options">
+                            <div>全部商品</div>
+                            <div>智能设备</div>
+                            <div>生活用品</div>
+                            <div>电子券码</div>
+                            <div>办公用品</div>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-dropdown">
+                        <div class="filter-btn">价格排序 ▼</div>
+                        <div class="filter-options">
+                            <div>积分从低到高</div>
+                            <div>积分从高到低</div>
+                            <div>最新上架</div>
+                            <div>人气最高</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="products">
+                    <!-- 商品1：智能手机 -->
+                    <div class="product-card-3d">
+                        <div class="product-card-inner">
+                            <div class="product-card-front">
+                                <img src="智能手机.jpg" alt="智能手机">
+                                <h3>智能手机</h3>
+                                <div class="price">1200积分</div>
+                            </div>
+                            <div class="product-card-back">
+                                <h3>智能手机</h3>
+                                <div class="rating">
+                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                                </div>
+                                <p>高性能智能手机，配备最新处理器和超清摄像头，满足您的日常需求。</p>
+                                <button class="exchange-btn">立即兑换</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 商品2：智能手环 -->
+                    <div class="product-card-3d">
+                        <div class="product-card-inner">
+                            <div class="product-card-front">
+                                <img src="智能手环.jpg" alt="智能手环">
+                                <h3>智能手环</h3>
+                                <div class="price">800积分</div>
+                            </div>
+                            <div class="product-card-back">
+                                <h3>智能手环</h3>
+                                <div class="rating">
+                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                                </div>
+                                <p>多功能智能手环，监测心率、步数、睡眠质量，续航长达7天。</p>
+                                <button class="exchange-btn">立即兑换</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 商品3：充电宝 -->
+                    <div class="product-card-3d">
+                        <div class="product-card-inner">
+                            <div class="product-card-front">
+                                <img src="充电宝.jpg" alt="充电宝">
+                                <h3>便携充电宝</h3>
+                                <div class="price">500积分</div>
+                            </div>
+                            <div class="product-card-back">
+                                <h3>便携充电宝</h3>
+                                <div class="rating">
+                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                                </div>
+                                <p>10000mAh大容量充电宝，支持快充技术，轻薄便携。</p>
+                                <button class="exchange-btn">立即兑换</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 商品4：咖啡杯 -->
+                    <div class="product-card-3d">
+                        <div class="product-card-inner">
+                            <div class="product-card-front">
+                                <img src="咖啡杯.jpg" alt="咖啡杯">
+                                <h3>咖啡杯套装</h3>
+                                <div class="price">300积分</div>
+                            </div>
+                            <div class="product-card-back">
+                                <h3>咖啡杯套装</h3>
+                                <div class="rating">
+                                    <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
+                                </div>
+                                <p>精美陶瓷咖啡杯套装，包含4个杯子和托盘，适合家庭使用。</p>
+                                <button class="exchange-btn">立即兑换</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 商品5：办公文具 -->
+                    <div class="product-card-3d">
+                        <div class="product-card-inner">
+                            <div class="product-card-front">
+                                <img src="办公文具.jpg" alt="办公文具">
+                                <h3>办公文具套装</h3>
+                                <div class="price">200积分</div>
+                            </div>
+                            <div class="product-card-back">
+                                <h3>办公文具套装</h3>
+                                <div class="rating">
+                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                                </div>
+                                <p>包含钢笔、笔记本、便签等办公必需品，提升工作效率。</p>
+                                <button class="exchange-btn">立即兑换</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 商品6：电子书券 -->
+                    <div class="product-card-3d">
+                        <div class="product-card-inner">
+                            <div class="product-card-front">
+                                <img src="电子书代金券.jpg" alt="电子书券">
+                                <h3>电子书代金券</h3>
+                                <div class="price">100积分</div>
+                            </div>
+                            <div class="product-card-back">
+                                <h3>电子书代金券</h3>
+                                <div class="rating">
+                                    <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
+                                </div>
+                                <p>价值50元的电子书代金券，可在平台内购买任意电子书。</p>
+                                <button class="exchange-btn">立即兑换</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-ads">
+                <div class="ad-card">
+                    <h3 class="ad-title">积分活动</h3>
+                    <div class="points-promo">
+                        <h3>双倍积分周</h3>
+                        <p>本周所有消费均可获得双倍积分，赶快行动吧！</p>
+                    </div>
+                    <div class="points-promo" style="background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);">
+                        <h3>新用户福利</h3>
+                        <p>新注册用户赠送200积分，首次兑换享8折优惠！</p>
+                    </div>
+                </div>
+            <div class="ad-card">
+                <div class="points-display">积分：2,580</div>
+                <h3 class="ad-title">积分任务</h3>
+                <ul>
+                    <li>每日签到 +10积分</li>
+                    <li>完善个人信息 +50积分</li>
+                    <li>首次购物 +100积分</li>
+                    <li>邀请好友 +200积分</li>
+                    <li>发表评论 +20积分</li>
+                </ul>
+            </div>
+            </div>
+        </div>
+        </div>
+        <footer>
+            <div class="social-icons-3d">
+                <div class="social-icon-3d">f</div>
+                <div class="social-icon-3d">t</div>
+                <div class="social-icon-3d">in</div>
+                <div class="social-icon-3d">w</div>
+            </div>
+            <p>© 2025 数字展销平台 版权所有 | 积分兑换规则 | 用户协议 | 隐私政策</p>
+        </footer>
+    </div>
+
+    <!-- 设置面板 -->
+    <div class="settings-panel" id="settings-panel">
+        <div class="settings-content">
+            <div class="settings-header">
+                <h2>用户设置</h2>
+                <button class="close-btn" id="close-settings">&times;</button>
+            </div>
+            <div class="settings-body">
+                <div class="setting-group">
+                    <h3>通知设置</h3>
+                    <div class="setting-item">
+                        <span>积分变动通知</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <span>活动通知</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <span>新商品上架通知</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="setting-group">
+                    <h3>隐私设置</h3>
+                    <div class="setting-item">
+                        <span>显示积分余额</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <span>显示兑换记录</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="setting-group">
+                    <h3>显示设置</h3>
+                    <div class="setting-item">
+                        <span>主题模式</span>
+                        <select class="select-box">
+                            <option>浅色模式</option>
+                            <option>深色模式</option>
+                            <option>跟随系统</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <span>每页显示商品数</span>
+                        <select class="select-box">
+                            <option>6个</option>
+                            <option>9个</option>
+                            <option>12个</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button class="save-btn">保存设置</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 图片预览模态框 -->
+    <div class="image-preview" id="image-preview">
+        <div class="preview-content">
+            <button class="close-preview" id="close-preview">×</button>
+            <img id="preview-image" src="" alt="预览图" style="width:100%;height:300px;object-fit:cover;">
+        </div>
+    </div>
+
+    <script>
+        // 设置面板控制
+        document.getElementById('settings-btn').addEventListener('click', function() {
+            document.getElementById('settings-panel').style.display = 'flex';
+        });
+        
+        document.getElementById('close-settings').addEventListener('click', function() {
+            document.getElementById('settings-panel').style.display = 'none';
+        });
+        
+        // 点击设置面板外部关闭面板
+        document.getElementById('settings-panel').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
+        
+        // 保存设置按钮
+        document.querySelector('.save-btn').addEventListener('click', function() {
+            alert('设置已保存！');
+            document.getElementById('settings-panel').style.display = 'none';
+        });
+        
+        // 图片预览功能
+        const quickViewBtns = document.querySelectorAll('.quick-view');
+        const imagePreview = document.getElementById('image-preview');
+        const closePreview = document.getElementById('close-preview');
+        const previewImage = document.getElementById('preview-image');
+        
+        quickViewBtns.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const productCard = this.closest('.product-card');
+                const activeSlide = productCard.querySelector('.carousel-slide.active');
+                const productImage = activeSlide.querySelector('img').src;
+                
+                previewImage.src = productImage;
+                imagePreview.classList.add('active');
+            });
+        });
+        
+        closePreview.addEventListener('click', function() {
+            imagePreview.classList.remove('active');
+        });
+        
+        // 点击图片预览外部关闭
+        imagePreview.addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('active');
+            }
+        });
+        
+        quickViewBtns.forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const productCard = this.closest('.product-card');
+        const firstSlide = productCard.querySelector('.carousel-slide:nth-child(1)');
+        const productImage = firstSlide.querySelector('img').src;
+        
+        previewImage.src = productImage;
+        imagePreview.classList.add('active');
+    });
+});   
+    </script>
+    <!-- 登录/注册面板 -->
+    <div class="login-signup-panel" id="login-signup-panel">
+        <div class="settings-content">
+            <div class="settings-header">
+                <h2>用户登录</h2>
+                <button class="close-btn" id="close-login-signup">&times;</button>
+            </div>
+            <div class="settings-body">
+                <!-- 登录表单 -->
+                <div class="setting-group" id="login-form">
+                    <div class="setting-item">
+                        <span>用户名</span>
+                        <input type="text" class="select-box" placeholder="请输入用户名或手机号">
+                    </div>
+                    <div class="setting-item">
+                        <span>密码</span>
+                        <input type="password" class="select-box" placeholder="请输入密码">
+                    </div>
+                    <div class="setting-item">
+                        <span>记住登录</span>
+                        <div style="display: flex; ">
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <button class="save-btn login-btn" onclick="login()">登录</button>
+                    <div style="text-align: center; margin-top: 15px;">
+                        <a href="#" onclick="showRegisterForm()" style="color: #6ce07e; text-decoration: none;">还没有账号？立即注册</a>
+                    </div>
+                </div>
+                
+                <!-- 注册表单 -->
+                <div class="setting-group" id="register-form" style="display: none;">
+                    <h3>用户注册</h3>
+                    <div class="setting-item">
+                        <span>用户名</span>
+                        <input type="text" class="select-box" placeholder="请输入用户名">
+                    </div>
+                    <div class="setting-item">
+                        <span>手机号</span>
+                        <input type="text" class="select-box" placeholder="请输入手机号">
+                    </div>
+                    <div class="setting-item">
+                        <span>密码</span>
+                        <input type="password" class="select-box" placeholder="请输入密码">
+                    </div>
+                    <div class="setting-item">
+                        <span>确认密码</span>
+                        <input type="password" class="select-box" placeholder="请再次输入密码">
+                    </div>
+                    <div class="setting-item">
+                        <span>同意协议</span>
+                        <div style="width: 98px; display: flex; justify-content: flex-start;">
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <button class="save-btn login-btn" onclick="register()">注册</button>
+                    <div style="text-align: center; margin-top: 15px;">
+                        <a href="#" onclick="showLoginForm()" style="color: #6ce07e; text-decoration: none;">已有账号？立即登录</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+    <script>
+    // 显示登录/注册面板
+    function showLoginSignupPanel() {
+        document.getElementById('login-signup-panel').style.display = 'flex';
+        showLoginForm();
+    }    
+    // 关闭登录/注册面板
+    document.getElementById('close-login-signup').addEventListener('click', function() {
+        document.getElementById('login-signup-panel').style.display = 'none';
+    });   
+    // 点击面板外部关闭
+    document.getElementById('login-signup-panel').addEventListener('click', function(e) {
+        if (e.target === this) {
+            this.style.display = 'none';
+        }
+    });    
+    // 显示登录表单
+    function showLoginForm() {
+        document.getElementById('login-form').style.display = 'block';
+        document.getElementById('register-form').style.display = 'none';
+    }    
+    // 显示注册表单
+    function showRegisterForm() {
+        document.getElementById('login-form').style.display = 'none';
+        document.getElementById('register-form').style.display = 'block';
+    }   
+    // 登录功能
+    function login() {
+        alert('登录成功！');
+        document.getElementById('login-signup-panel').style.display = 'none';
+    }   
+    // 注册功能
+    function register() {
+        alert('注册成功！');
+        document.getElementById('login-signup-panel').style.display = 'none';
+    }    
+    // 给顶部的登录/注册按钮添加点击事件
+    document.querySelector('.user-info-item:first-child').addEventListener('click', showLoginSignupPanel);
+    </script>
+    <script>
+        let simpleCart = [];
+        // 点击兑换按钮时
+        document.querySelectorAll('.exchange-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const title = this.closest('.product-card-3d').querySelector('.product-card-front h3').textContent;
+                simpleCart.push(title);
+                document.getElementById('cart-num').textContent = simpleCart.length;
+                alert(`已添加 ${title} 到购物车`);
+            });
+        });      
+        // 查看购物车
+        document.getElementById('simple-cart').addEventListener('click', function() {
+            if (simpleCart.length === 0) {
+                alert('购物车为空');
+            } else {
+                alert('购物车商品：\n' + simpleCart.join('\n'));
+            }
+        });
+        </script>        
+</body>
+</html
